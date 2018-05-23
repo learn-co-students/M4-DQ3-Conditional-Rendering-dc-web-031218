@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const MenuBar = (props) => {
-
+const MenuBar = props => {
   /*
 
-  The 'a' tags below are the menu items. Think about the way a menu 
+  The 'a' tags below are the menu items. Think about the way a menu
   should work. When you click a menu item, the button typically becomes
   'active' to indicate that it is currently selected. How could we achieve
   this programatically? What other behavior do we expect when we click
@@ -13,26 +12,46 @@ const MenuBar = (props) => {
 
   */
 
+  const handleClick = e => {
+    console.log(e.target.id);
+    props.changeDisplay(e.target.id);
+  };
+
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a
+        className={"item " + (props.display === "profile" ? "active" : null)}
+        id="profile"
+        onClick={handleClick}
+      >
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
+      <a
+        className={"item " + (props.display === "photo" ? "active" : null)}
+        id="photo"
+        onClick={handleClick}
+      >
+        <i className="photo large icon" id="photo" />
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a
+        className={"item " + (props.display === "cocktail" ? "active" : null)}
+        id="cocktail"
+        onClick={handleClick}
+      >
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
+      <a
+        className={"item " + (props.display === "pokemon" ? "active" : null)}
+        id="pokemon"
+        onClick={handleClick}
+      >
+        <i className=" themeisle large icon" id="pokemon" />
       </a>
     </div>
-  )
+  );
+};
 
-}
-
-export default MenuBar
+export default MenuBar;
